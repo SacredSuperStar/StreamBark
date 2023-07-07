@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Continuous Audio Playback</title>
+</head>
+<body>
+<audio id="audioPlayer" controls autoplay>
+    <source src="/audio/audio_0.wav" type="audio/mpeg">
+</audio>
+<script>
+    var audioPlayer = document.getElementById('audioPlayer');
+    var currentAudioIndex = 0;
+
+    audioPlayer.addEventListener('ended', function () {
+        // Generate the next audio file URL here
+        var nextAudioUrl = '/audio/audio_' + (currentAudioIndex + 1) + '.wav';
+        audioPlayer.src = nextAudioUrl;
+        currentAudioIndex++;
+    });
+</script>
+</body>
+</html>
